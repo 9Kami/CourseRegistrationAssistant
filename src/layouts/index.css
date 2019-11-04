@@ -1,0 +1,53 @@
+.normal {
+  height: 100%;
+}
+
+.indexLoading{
+  height: 100%;
+  text-align: center;
+}
+
+.header {
+  position: relative;
+  background-color: #ffffff;
+  padding: 0;
+  height: 66px;
+}
+
+.siderCollapseButton {
+  padding: 19px 24px;
+  font-size: 20px;
+  color: #595959;
+}
+
+.headerUserInfo {
+  position: absolute;
+  right: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: inline-block;
+  height: 66px;
+  line-height: 66px;
+}
+
+.headerUserInfo:hover{
+  background-color: #f6f6f6;
+  cursor: pointer;
+}
+
+.headerUserAvatar {
+  margin-right: 8px !important;
+}
+
+.sider {
+}
+
+.siderLogo {
+  width: 100%;
+  padding-left: 24px;
+  height: 66px;
+}
+
+.content{
+  overflow: auto;
+}
