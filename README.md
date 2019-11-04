@@ -1,0 +1,2 @@
+# CourseRegistrationAssistant
+Course Registration Assistant
