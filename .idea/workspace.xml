@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f6a5c7df-fb28-4a35-98db-c1c2593dfdcc" name="Default Changelist" comment="" />
+    <list default="true" id="f6a5c7df-fb28-4a35-98db-c1c2593dfdcc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/models/ChooseCourse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/ChooseCourse.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/ChooseCourse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Dashboard.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/SelectElectiveCourses.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/SelectMajorCourses.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/UpdateStatus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.umirc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.umirc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/SiderContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/SiderContent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Dashboard.js" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +39,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../SoftwareEngineering/messagingSystem" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
@@ -56,7 +72,10 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.start">
+    <configuration name="ChooseCourse.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/pages/ChooseCourse.js" working-dir="$PROJECT_DIR$/src/pages">
+      <method v="2" />
+    </configuration>
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -67,6 +86,11 @@
       <envs />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.ChooseCourse.js" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -80,7 +104,17 @@
       <updated>1572715989203</updated>
       <workItem from="1572715991264" duration="30585000" />
       <workItem from="1572804148082" duration="10000" />
-      <workItem from="1572890842243" duration="879000" />
+      <workItem from="1572890842243" duration="1183000" />
+      <workItem from="1572898135528" duration="4774000" />
+      <workItem from="1573089354486" duration="1198000" />
+      <workItem from="1573099697540" duration="3215000" />
+      <workItem from="1573161476492" duration="7334000" />
+      <workItem from="1573245958101" duration="3678000" />
+      <workItem from="1573265558134" duration="5052000" />
+      <workItem from="1573324277330" duration="15995000" />
+      <workItem from="1573428423567" duration="2119000" />
+      <workItem from="1573432193075" duration="5366000" />
+      <workItem from="1573523351079" duration="8528000" />
     </task>
     <servers />
   </component>
@@ -92,7 +126,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

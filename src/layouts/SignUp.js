@@ -56,6 +56,7 @@ class SignUp extends React.Component {
         sm: { span: 16 },
       },
     };
+
     const tailFormItemLayout = {
       wrapperCol: {
         xs: {
@@ -68,6 +69,7 @@ class SignUp extends React.Component {
         },
       },
     };
+
     const majorOptions = [
       {
         value: 'Bachelor of Arts',

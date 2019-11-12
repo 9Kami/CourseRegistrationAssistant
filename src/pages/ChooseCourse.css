@@ -1,0 +1,31 @@
+.chooseCourseMain {
+  margin: 24px;
+}
+
+.statusForm {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.deleteField {
+  cursor: pointer;
+  position: relative;
+  top: 4px;
+  font-size: 24px;
+  color: #999;
+  transition: all 0.3s;
+}
+
+.deleteField:hover {
+  color: #777;
+}
+
+.deleteField[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.stepContent {
+  margin-top: 40px;
+  min-height: 200px;
+}

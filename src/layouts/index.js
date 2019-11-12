@@ -35,20 +35,32 @@ class BasicLayout extends React.Component {
       </div>
     }
 
+    let selectedKeys;
+    switch (this.props.location.pathname) {
+      case "/dashboard":
+        selectedKeys = ["dashboard"];
+        break;
+      case "/choose-your-courses":
+        selectedKeys = ["chooseCourses"];
+        break;
+      default:
+        selectedKeys = [];
+    }
+
     return (
       <Layout className={styles.normal}>
         <Sider className={styles.sider}
                theme={"dark"}
                collapsible={true}
                collapsed={this.props.globalLayout.siderCollapsed}>
-          <SiderContent/>
+          <SiderContent selectedKeys={selectedKeys}/>
         </Sider>
         <Layout>
           <Header className={styles.header}>
             <HeaderContent/>
           </Header>
           <Content className={styles.content}>
-            {function ParentComponent(props){ return ( this.props.children ) }}
+            {this.props.children}
           </Content>
         </Layout>
       </Layout>

@@ -22,7 +22,7 @@
 
 .headerUserInfo {
   position: absolute;
-  right: 0;
+  right: 8px;
   padding-left: 10px;
   padding-right: 10px;
   display: inline-block;

@@ -1,0 +1,26 @@
+.dashboardMain {
+  margin: 24px;
+}
+
+.dashboardRow {
+  margin-bottom: 24px;
+}
+
+.dashboardUser {
+  display: flex;
+}
+
+.dashboardUserAvatar {
+  flex: 0 1 103px;
+}
+
+.dashboardUserText {
+  position: relative;
+  top: 10px;
+  flex: 1 1 auto;
+  margin-left: 36px;
+}
+
+.dashboardUserContent {
+  font-size: 20px;
+}

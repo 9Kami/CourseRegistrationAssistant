@@ -10,6 +10,7 @@ export default {
       component: '../layouts/index',
       routes: [
         { path: '/dashboard', component: '../pages/Dashboard' },
+        { path: '/choose-your-courses', component: '../pages/ChooseCourse' },
       ]
     }
   ],
