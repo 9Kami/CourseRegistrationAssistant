@@ -15,7 +15,7 @@ class SignUp extends React.Component {
 
   handleSignUpDown() {
     this.setState({loading: false});
-    message.success('This is a success message', 1, () => router.push('/login'))
+    message.success('Successfully signed up!', 1, () => router.push('/login'))
   }
 
   handleSubmit = e => {

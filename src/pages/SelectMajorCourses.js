@@ -9,7 +9,7 @@ class SelectMajorCourses extends React.Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log(values);
-        let majorCoursesSelected = this.props.chooseCourses.majorCourseOptions.filter(e => (values[e.courseID] === true));
+        let majorCoursesSelected = this.props.chooseCourses.majorCourseOptions.filter(e => values[e.courseID]);
         console.log(majorCoursesSelected);
         window.g_app._store.dispatch({
           type: 'chooseCourses/nextStep'
@@ -27,6 +27,7 @@ class SelectMajorCourses extends React.Component {
         <Form.Item {...this.props.formItemLayout} label={e.courseName} key={i}>
           {getFieldDecorator(e.courseID, {
             valuePropName: 'checked',
+            initialValue: false,
           })(<Checkbox/>)}
         </Form.Item>)}
       <Form.Item

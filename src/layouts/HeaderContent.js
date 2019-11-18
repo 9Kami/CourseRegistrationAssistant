@@ -1,5 +1,5 @@
 import React from 'react';
-import {Icon, Avatar} from "antd";
+import {Icon, Avatar, Dropdown, Menu} from "antd";
 import styles from "./index.css"
 import withRouter from "umi/withRouter";
 import {connect} from "dva";
@@ -13,15 +13,30 @@ class HeaderContent extends React.Component {
   }
 
   render() {
+    const dropdown = (
+      <Menu>
+        <Menu.Item key="0">
+          <Icon className={styles.headerDropdownIcon} type="setting" />
+          Setting
+        </Menu.Item>
+        <Menu.Item key="1">
+          <Icon className={styles.headerDropdownIcon} type="logout" />
+          Log Out
+        </Menu.Item>
+      </Menu>
+    );
+
     return (
       <div>
         <a className={styles.siderCollapseButton} onClick={() => this.handleCollapse()}>
           <Icon type={(this.props.globalLayout.siderCollapsed)? "menu-unfold":"menu-fold"}/>
         </a>
-        <span className={styles.headerUserInfo}>
-          <Avatar className={styles.headerUserAvatar} src={this.props.globalLayout.avatar} />
-          <span>{this.props.globalLayout.username}</span>
-        </span>
+        <Dropdown overlay={dropdown} trigger={['click']}>
+          <span className={styles.headerUserInfo}>
+            <Avatar className={styles.headerUserAvatar} src={this.props.globalLayout.avatar} />
+            <span>{this.props.globalLayout.username}</span>
+          </span>
+        </Dropdown>
       </div>
     );
   }

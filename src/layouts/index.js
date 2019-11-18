@@ -43,6 +43,12 @@ class BasicLayout extends React.Component {
       case "/choose-your-courses":
         selectedKeys = ["chooseCourses"];
         break;
+      case "/track-your-courses":
+        selectedKeys = ["trackCourses"];
+        break;
+      case "/setting":
+        selectedKeys = ["setting"];
+        break;
       default:
         selectedKeys = [];
     }

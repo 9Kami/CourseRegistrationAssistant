@@ -41,6 +41,10 @@
   margin-right: 8px !important;
 }
 
+.headerDropdownIcon {
+  margin-right: 8px;
+}
+
 .sider {
   z-index: 10;
   box-shadow: 2px 0 6px rgba(0,21,41,.35);

@@ -18,7 +18,7 @@ class Login extends React.Component {
     if(response.userId === null) {
       message.error('Username or password is wrong!');
     } else {
-      message.success('Successfully log in', 1, () => router.push('/dashboard'));
+      message.success('Successfully logged in', 1, () => router.push('/dashboard'));
     }
   }
 
@@ -31,7 +31,8 @@ class Login extends React.Component {
         request.post('/login', {
           data: {
             userId: values.aNumber,
-            password: values.password
+            password: values.password,
+            remember: values.remember
           }
         }).then((response) => {
           console.log(response);
@@ -74,7 +75,7 @@ class Login extends React.Component {
         <Form.Item>
           {getFieldDecorator('remember', {
             valuePropName: 'checked',
-            initialValue: true,
+            initialValue: false,
           })(<Checkbox>Remember me</Checkbox>)}
           <Button type="primary" htmlType="submit" className={styles.loginButton} loading={this.state.loading}>
             Log In
