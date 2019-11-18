@@ -1,6 +1,6 @@
 import React from 'react';
 import {Cascader, Form, Button, Icon, message} from "antd";
-import styles from "./ChooseCourse.css"
+import styles from "./ChooseCourses.css"
 import {connect} from "dva";
 
 let id = 0;
@@ -29,21 +29,23 @@ class SelectElectiveCourses extends React.Component {
       if (!err) {
         const { keys, electiveCourses } = values;
         const data = keys.map(key => electiveCourses[key]);
-        if(this.dataValidation(data)){
-          console.log('Merged values:', data);
+        let courseArray = data.map(e => e[2]);
+        let courseIDArray = courseArray.map(e => e.courseID);
+        let courseNameArray = courseArray.map(e => e.courseName);
+        if(this.dataValidation(courseIDArray)){
+          console.log('Merged values:', courseNameArray);
           window.g_app._store.dispatch({
-            type: 'chooseCourse/nextStep'
+            type: 'chooseCourses/nextStep'
           });
         }
       }
     });
   };
 
-  dataValidation(data){
-    let stringData = data.map((e)=>e.toString());
-    for(let i = 0; i < stringData.length; i++){
-      let curr = stringData[i];
-      let array = stringData.slice(0);
+  dataValidation(courses){
+    for(let i = 0; i < courses.length; i++){
+      let curr = courses[i];
+      let array = courses.slice(0);
       array.splice(i,1);
       if(array.indexOf(curr) !== -1){
         message.error('Do not choose a repeating course!');
@@ -55,7 +57,7 @@ class SelectElectiveCourses extends React.Component {
 
   prev = () => {
     window.g_app._store.dispatch({
-      type: 'chooseCourse/prevStep'
+      type: 'chooseCourses/prevStep'
     });
   };
 
@@ -94,7 +96,7 @@ class SelectElectiveCourses extends React.Component {
               message: "Please select a course or delete this field.",
             },
           ],
-        })(<Cascader style={{ width: '60%', marginRight: 8 }} options={this.props.chooseCourse.electiveCourseOptions}/>)}
+        })(<Cascader style={{ width: '60%', marginRight: 8 }} options={this.props.chooseCourses.electiveCourseOptions}/>)}
           <Icon
             className={styles.deleteField}
             type="minus-circle-o"
@@ -103,7 +105,7 @@ class SelectElectiveCourses extends React.Component {
       </Form.Item>
     ));
 
-    return <Form onSubmit={this.handleSubmit} className={styles.statusForm}>
+    return <Form onSubmit={this.handleSubmit} className={styles.coursesForm}>
         {formItems}
         <Form.Item {...formItemLayoutWithOutLabel}>
           <Button type="dashed" onClick={this.add} style={{ width: '60%' }}>
@@ -122,5 +124,5 @@ class SelectElectiveCourses extends React.Component {
   }
 }
 
-export default connect(({chooseCourse, loading}) =>
-  ({chooseCourse, loading: loading.models.chooseCourse}))(Form.create({ name: 'electiveCoursesSelected' })(SelectElectiveCourses));
+export default connect(({chooseCourses, loading}) =>
+  ({chooseCourses, loading: loading.models.chooseCourses}))(Form.create({ name: 'electiveCoursesSelected' })(SelectElectiveCourses));

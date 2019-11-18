@@ -2,21 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6a5c7df-fb28-4a35-98db-c1c2593dfdcc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/models/ChooseCourse.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/ChooseCourse.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/ChooseCourse.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Dashboard.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/SelectElectiveCourses.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/SelectMajorCourses.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/UpdateStatus.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/TrackCourses.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/ChooseCourses.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/TrackCourses.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/TrackCourses.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.umirc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.umirc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/yay.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layouts/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layouts/SiderContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/SiderContent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layouts/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/SignUp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layouts/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/ChooseCourse.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/ChooseCourses.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/GlobalLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/GlobalLayout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ChooseCourse.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ChooseCourses.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ChooseCourse.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SelectElectiveCourses.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SelectElectiveCourses.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/SelectMajorCourses.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SelectMajorCourses.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/UpdateStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/UpdateStatus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +48,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../SoftwareEngineering/messagingSystem" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../CSCI2355/A09" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
@@ -55,8 +64,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Programing\HCI\CourseRegistrationAssistant\src\layouts" />
       <recent name="D:\Programing\HCI\CourseRegistrationAssistant\src\pages" />
+      <recent name="D:\Programing\HCI\CourseRegistrationAssistant\src\layouts" />
       <recent name="D:\Programing\HCI\CourseRegistrationAssistant\src" />
     </key>
   </component>
@@ -73,7 +82,7 @@
     </option>
   </component>
   <component name="RunManager" selected="npm.start">
-    <configuration name="ChooseCourse.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/pages/ChooseCourse.js" working-dir="$PROJECT_DIR$/src/pages">
+    <configuration name="ChooseCourses.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/pages/ChooseCourses.js" working-dir="$PROJECT_DIR$/src/pages">
       <method v="2" />
     </configuration>
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
@@ -88,7 +97,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Node.js.ChooseCourse.js" />
+        <item itemvalue="Node.js.ChooseCourses.js" />
       </list>
     </recent_temporary>
   </component>
@@ -114,7 +123,18 @@
       <workItem from="1573324277330" duration="15995000" />
       <workItem from="1573428423567" duration="2119000" />
       <workItem from="1573432193075" duration="5366000" />
-      <workItem from="1573523351079" duration="8528000" />
+      <workItem from="1573523351079" duration="8915000" />
+      <workItem from="1573598658746" duration="4708000" />
+      <workItem from="1573676403248" duration="4283000" />
+      <workItem from="1573710737774" duration="83000" />
+      <workItem from="1573774429886" duration="1454000" />
+      <workItem from="1573849652163" duration="751000" />
+      <workItem from="1573855945948" duration="13312000" />
+      <workItem from="1573929786824" duration="665000" />
+      <workItem from="1573945537314" duration="1038000" />
+      <workItem from="1573958865809" duration="665000" />
+      <workItem from="1573967641744" duration="1354000" />
+      <workItem from="1574010911341" duration="10552000" />
     </task>
     <servers />
   </component>

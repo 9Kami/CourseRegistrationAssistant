@@ -1,10 +1,10 @@
-.chooseCourseMain {
+.chooseCoursesContent {
   margin: 24px;
 }
 
-.statusForm {
+.coursesForm {
+  margin: 48px auto 0;
   width: 500px;
-  margin: 0 auto;
 }
 
 .deleteField {
@@ -23,9 +23,4 @@
 .deleteField[disabled] {
   cursor: not-allowed;
   opacity: 0.5;
-}
-
-.stepContent {
-  margin-top: 40px;
-  min-height: 200px;
 }

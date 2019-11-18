@@ -1,6 +1,6 @@
 import React from 'react';
-import {Cascader, Form, Button} from "antd";
-import styles from "./ChooseCourse.css"
+import {Cascader, Form, Button, Alert} from "antd";
+import styles from "./ChooseCourses.css";
 import {connect} from "dva";
 
 class UpdateStatus extends React.Component {
@@ -71,7 +71,7 @@ class UpdateStatus extends React.Component {
       if (!err) {
         console.log(values);
         window.g_app._store.dispatch({
-          type: 'chooseCourse/nextStep'
+          type: 'chooseCourses/update'
         });
       }
     });
@@ -80,33 +80,38 @@ class UpdateStatus extends React.Component {
   render() {
     const { getFieldDecorator } = this.props.form;
 
-    return <Form className={styles.statusForm} colon={false} hideRequiredMark={true}
-                 labelAlign={"left"} onSubmit={this.handleSubmit}>
-      {this.props.chooseCourse.previousCourses.map((e,i,arr)=>
-        <Form.Item {...this.props.formItemLayout} label={e.courseName} key={i}>
-          {getFieldDecorator(e.courseID, {
-            rules: [
-              {
-                required: true,
-                message: 'Please select the status for this course!',
-              },
-            ],
-            initialValue: ["In process"]
-          })(<Cascader options={this.statusOptions} allowClear={false}/>)}
-        </Form.Item>)}
-      <Form.Item
-        wrapperCol={{
-          xs: { span: 24, offset: 0 },
-          sm: { span: 8, offset: 16 },
-        }}
-      >
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
-    </Form>
+    return <main>
+      <Form className={styles.coursesForm} colon={false} hideRequiredMark={true}
+            labelAlign={"left"} onSubmit={this.handleSubmit}>
+        <Alert message="After submitting, the status of the non-processing courses can not be changed."
+               type="info" showIcon />
+               <br/>
+        {this.props.chooseCourses.previousCourses.map((e,i,arr)=>
+          <Form.Item {...this.props.formItemLayout} label={e.courseName} key={i}>
+            {getFieldDecorator(e.courseID, {
+              rules: [
+                {
+                  required: true,
+                  message: 'Please select the status for this course!',
+                },
+              ],
+              initialValue: ["In process"]
+            })(<Cascader options={this.statusOptions} allowClear={false}/>)}
+          </Form.Item>)}
+        <Form.Item
+          wrapperCol={{
+            xs: { span: 24, offset: 0 },
+            sm: { span: 8, offset: 16 },
+          }}
+        >
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+        </Form.Item>
+      </Form>
+    </main>
   }
 }
 
-export default connect(({chooseCourse, loading}) =>
-  ({chooseCourse, loading: loading.models.chooseCourse}))(Form.create({ name: 'updateStatus' })(UpdateStatus));
+export default connect(({chooseCourses, loading}) =>
+  ({chooseCourses, loading: loading.models.chooseCourses}))(Form.create({ name: 'updateStatus' })(UpdateStatus));

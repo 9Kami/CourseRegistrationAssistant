@@ -1,16 +1,21 @@
 import styles from './Login.css';
 import React from 'react';
-import {Form, Checkbox, Button, Input, Icon, Tooltip, Cascader} from "antd";
-import withRouter from 'umi/withRouter';
-import {connect} from "dva";
-import Link from 'umi/link';
+import {Form, Checkbox, Button, Input, Icon, Tooltip, Cascader, message} from "antd";
+import { request } from "../server/server";
+import router from "umi/router";
 
 class SignUp extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      confirmDirty: false
+      confirmDirty: false,
+      loading: false
     };
+  }
+
+  handleSignUpDown() {
+    this.setState({loading: false});
+    message.success('This is a success message', 1, () => router.push('/login'))
   }
 
   handleSubmit = e => {
@@ -18,6 +23,21 @@ class SignUp extends React.Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
+        this.setState({loading: true});
+        request.post('/sign-up', {
+          data: {
+            userId: values.aNumber,
+            password: values.password,
+            nickname: values.nickname,
+            major: values.major[1]
+          }
+        }).then((response) => {
+          console.log(response);
+          this.handleSignUpDown();
+        }).catch((error) => {
+          console.log(error);
+          this.setState({loading: false});
+        });
       }
     });
   };
@@ -273,7 +293,7 @@ class SignUp extends React.Component {
       <main className={styles.signUp}>
         <Form className={styles.signUpForm} {...formItemLayout} onSubmit={this.handleSubmit}>
           <Form.Item label="A-number">
-            {getFieldDecorator('email', {
+            {getFieldDecorator('aNumber', {
               rules: [
                 {
                   required: true,
@@ -353,7 +373,7 @@ class SignUp extends React.Component {
             )}
           </Form.Item>
           <Form.Item {...tailFormItemLayout}>
-            <Button type="primary" htmlType="submit">
+            <Button type="primary" htmlType="submit" loading={this.state.loading}>
               Register
             </Button>
           </Form.Item>

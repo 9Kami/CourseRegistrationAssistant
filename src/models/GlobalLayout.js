@@ -15,5 +15,10 @@ export default {
     loginInitialize (state) {
       return {...state, indexLoading: false};
     }
+  },
+  effect: {
+    initializea(){
+
+    }
   }
 }

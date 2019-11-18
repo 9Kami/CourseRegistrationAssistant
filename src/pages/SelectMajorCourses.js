@@ -1,6 +1,6 @@
 import React from 'react';
-import {Cascader, Form, Button, Checkbox} from "antd";
-import styles from "./ChooseCourse.css"
+import {Form, Button, Checkbox} from "antd";
+import styles from "./ChooseCourses.css"
 import {connect} from "dva";
 
 class SelectMajorCourses extends React.Component {
@@ -9,8 +9,10 @@ class SelectMajorCourses extends React.Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log(values);
+        let majorCoursesSelected = this.props.chooseCourses.majorCourseOptions.filter(e => (values[e.courseID] === true));
+        console.log(majorCoursesSelected);
         window.g_app._store.dispatch({
-          type: 'chooseCourse/nextStep'
+          type: 'chooseCourses/nextStep'
         });
       }
     });
@@ -19,9 +21,9 @@ class SelectMajorCourses extends React.Component {
   render() {
     const { getFieldDecorator } = this.props.form;
 
-    return <Form className={styles.statusForm} colon={false} hideRequiredMark={true}
-                 labelAlign={"left"}  onSubmit={this.handleSubmit}>
-      {this.props.chooseCourse.majorCourseOptions.map((e,i,arr)=>
+    return <Form className={styles.coursesForm} colon={false} hideRequiredMark={true}
+                 labelAlign={"left"} onSubmit={this.handleSubmit}>
+      {this.props.chooseCourses.majorCourseOptions.map((e,i,arr)=>
         <Form.Item {...this.props.formItemLayout} label={e.courseName} key={i}>
           {getFieldDecorator(e.courseID, {
             valuePropName: 'checked',
@@ -41,5 +43,6 @@ class SelectMajorCourses extends React.Component {
   }
 }
 
-export default connect(({chooseCourse, loading}) =>
-  ({chooseCourse, loading: loading.models.chooseCourse}))(Form.create({ name: 'majorCoursesSelected' })(SelectMajorCourses));
+export default connect(({chooseCourses, loading}) =>
+  ({chooseCourses,
+    loading: loading.models.chooseCourses}))(Form.create({ name: 'majorCoursesSelected' })(SelectMajorCourses));

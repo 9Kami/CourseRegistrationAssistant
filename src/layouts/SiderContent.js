@@ -5,12 +5,11 @@ import Link from 'umi/link';
 
 class SiderContent extends React.Component {
   render() {
-
     return (
       <div>
         <div className={styles.siderLogo}>
         </div>
-        <Menu theme={"dark"} defaultSelectedKeys={this.props.selectedKeys}>
+        <Menu theme={"dark"} selectedKeys={this.props.selectedKeys}>
           <Menu.Item key={"dashboard"} >
             <Link to={"/dashboard"}>
               <Icon type="dashboard" />
@@ -24,8 +23,10 @@ class SiderContent extends React.Component {
             </Link>
           </Menu.Item>
           <Menu.Item key={"trackCourses"}>
-            <Icon type="file-search" />
-            <span>Track Your Courses</span>
+            <Link to={"/track-your-courses"}>
+              <Icon type="file-search" />
+              <span>Track Your Courses</span>
+            </Link>
           </Menu.Item>
           <Menu.Item key={"setting"}>
             <Icon type="setting" />

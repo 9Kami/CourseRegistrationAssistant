@@ -2,6 +2,7 @@ import React from 'react';
 import {Icon, Row, Col, Card, Statistic, Avatar, Typography, Table } from "antd";
 import styles from "./Dashboard.css"
 import {connect} from "dva";
+import Link from 'umi/link';
 
 class Dashboard extends React.Component {
   constructor(props){
@@ -11,7 +12,7 @@ class Dashboard extends React.Component {
     }
   }
 
-  completedCoursesColumns = [
+  coursesColumns = [
     {
       title: 'Subject',
       dataIndex: 'subject',
@@ -41,8 +42,8 @@ class Dashboard extends React.Component {
   ];
 
   tabContentList = {
-    inProcess: <Table columns={this.completedCoursesColumns} />,
-    completed: <Table columns={this.completedCoursesColumns} bordered={true} />
+    inProcess: <Table columns={this.coursesColumns} />,
+    completed: <Table columns={this.coursesColumns} bordered={true} />
   };
 
   render() {
@@ -101,12 +102,12 @@ class Dashboard extends React.Component {
         <Row gutter={24} className={styles.dashboardRow}>
           <Col span={12}>
             <Card title="In Processing Courses" extra={<a href="#">Detail</a>}>
-              <Table columns={this.completedCoursesColumns} bordered={false} />
+              <Table columns={this.coursesColumns} bordered={false} />
             </Card>
           </Col>
           <Col span={12}>
             <Card title="Completed Courses" extra={<a href="#">Detail</a>}>
-              <Table columns={this.completedCoursesColumns} bordered={false} />
+              <Table columns={this.coursesColumns} bordered={false} />
             </Card>
           </Col>
         </Row>
@@ -114,7 +115,7 @@ class Dashboard extends React.Component {
           <Col span={24}>
             <Card tabList={this.tabList} title={"Your Courses"} activeTabKey={this.state.tabKey}
                   onTabChange={(key)=>this.setState({...this.state, tabKey:key})}
-                  extra={<a href="#">Detail</a>}>
+                  extra={<Link to="/track-your-courses">Detail</Link>}>
               {this.tabContentList[this.state.tabKey]}
             </Card>
           </Col>

@@ -2,14 +2,44 @@ import styles from './Login.css';
 import React from 'react';
 import {Form, Checkbox, Button, Input, Icon, message} from "antd";
 import Link from 'umi/link';
+import {request} from "@/server/server";
+import router from "umi/router";
 
 class Login extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      loading: false
+    };
+  }
+
+  handleLoginDown(response) {
+    this.setState({loading: false});
+    if(response.userId === null) {
+      message.error('Username or password is wrong!');
+    } else {
+      message.success('Successfully log in', 1, () => router.push('/dashboard'));
+    }
+  }
+
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
-        message.error('Username or password is wrong!');
+        this.setState({loading: true});
+        request.post('/login', {
+          data: {
+            userId: values.aNumber,
+            password: values.password
+          }
+        }).then((response) => {
+          console.log(response);
+          this.handleLoginDown(response);
+        }).catch((error) => {
+          console.log(error);
+          this.setState({loading: false});
+        });
       }
     });
   };
@@ -21,12 +51,12 @@ class Login extends React.Component {
       <main className={styles.login}>
       <Form onSubmit={this.handleSubmit} className={styles.loginForm}>
         <Form.Item>
-          {getFieldDecorator('username', {
-            rules: [{ required: true, message: 'Please input your username!' }],
+          {getFieldDecorator('aNumber', {
+            rules: [{ required: true, message: 'Please input your A-number!' }],
           })(
             <Input
               prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-              placeholder="Username"
+              placeholder="A-number"
             />,
           )}
         </Form.Item>
@@ -46,8 +76,8 @@ class Login extends React.Component {
             valuePropName: 'checked',
             initialValue: true,
           })(<Checkbox>Remember me</Checkbox>)}
-          <Button type="primary" htmlType="submit" className={styles.loginButton}>
-            Log in
+          <Button type="primary" htmlType="submit" className={styles.loginButton} loading={this.state.loading}>
+            Log In
           </Button>
           Or <Link to={"/sign-up"}>register now!</Link>
         </Form.Item>
