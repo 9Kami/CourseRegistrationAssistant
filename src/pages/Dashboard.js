@@ -32,8 +32,8 @@ class Dashboard extends React.Component {
 
   tabList = [
     {
-      key: 'inProcess',
-      tab: 'In Process',
+      key: 'inProgress',
+      tab: 'In-progress',
     },
     {
       key: 'completed',
@@ -51,7 +51,7 @@ class Dashboard extends React.Component {
       <main className={styles.dashboardMain}>
         <Row gutter={24} className={styles.dashboardRow}>
           <Col span={16}>
-            <Card>
+            <Card className={styles.dashboardUserCard}>
               <div className={styles.dashboardUser}>
                 <div className={styles.dashboardUserAvatar}>
                   <Avatar size={103}
@@ -69,7 +69,7 @@ class Dashboard extends React.Component {
             </Card>
           </Col>
           <Col span={8}>
-            <Card>
+            <Card className={styles.dashboardUserDataCard}>
               <Row gutter={16}>
                 <Col span={8}>
                   <Statistic
@@ -82,7 +82,7 @@ class Dashboard extends React.Component {
                 </Col>
                 <Col span={8}>
                   <Statistic
-                    title="GPA Hours Earned"
+                    title="GPA Hours"
                     value={this.props.dashboard.gpaHours}
                     suffix="/ 120"
                     valueStyle={{fontSize:"52px"}}
@@ -90,7 +90,7 @@ class Dashboard extends React.Component {
                 </Col>
                 <Col span={8}>
                   <Statistic
-                    title="Course in Processing"
+                    title="In Progress"
                     value={this.props.dashboard.inProcessNo}
                     valueStyle={{fontSize:"52px"}}
                   />
@@ -101,7 +101,7 @@ class Dashboard extends React.Component {
         </Row>
         <Row gutter={24} className={styles.dashboardRow}>
           <Col span={12}>
-            <Card title="In Processing Courses" extra={<a href="#">Detail</a>}>
+            <Card title="In-progress Courses" extra={<a href="#">Detail</a>}>
               <Table columns={this.coursesColumns} bordered={false} />
             </Card>
           </Col>

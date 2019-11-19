@@ -48,8 +48,7 @@ class ChooseCourses extends React.Component {
       content: <Result
         status="success"
         title="Successfully Chosen Your Courses!"
-        subTitle={<span>You can view the courses you choose in
-          <Link to={"/track-your-courses"}>Track Your Courses</Link>.
+        subTitle={<span>You can view the courses you choose in <Link to={"/track-your-courses"}>Track Your Courses</Link>.
         </span>}
         extra={[
           <Link to={"/dashboard"} key={"backHome"}>

@@ -6,5 +6,5 @@ export const request = extend({
   headers: {
     'Content-Type': 'application/json'
   },
-  credentials: 'same-origin'
+  credentials: 'include'
 });

@@ -2,14 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6a5c7df-fb28-4a35-98db-c1c2593dfdcc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/services/Global.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layouts/HeaderContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/HeaderContent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layouts/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layouts/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/SignUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SelectMajorCourses.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SelectMajorCourses.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/GlobalLayout.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/GlobalLayout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ChooseCourses.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ChooseCourses.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Dashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Dashboard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/TrackCourses.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/TrackCourses.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/UpdateStatus.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/UpdateStatus.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/server.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,7 +36,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../CSCI2355/A09" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
@@ -119,7 +123,9 @@
       <workItem from="1573945537314" duration="1038000" />
       <workItem from="1573958865809" duration="665000" />
       <workItem from="1573967641744" duration="1354000" />
-      <workItem from="1574010911341" duration="16195000" />
+      <workItem from="1574010911341" duration="16295000" />
+      <workItem from="1574056332366" duration="23000" />
+      <workItem from="1574111008332" duration="9261000" />
     </task>
     <servers />
   </component>

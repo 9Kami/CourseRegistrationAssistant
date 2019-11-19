@@ -6,8 +6,8 @@ import {connect} from "dva";
 class UpdateStatus extends React.Component {
   statusOptions = [
     {
-      label: "In process",
-      value: "In process"
+      label: "In-progress",
+      value: "In-progress"
     },
     {
       label: "Passed",
@@ -95,7 +95,7 @@ class UpdateStatus extends React.Component {
                   message: 'Please select the status for this course!',
                 },
               ],
-              initialValue: ["In process"]
+              initialValue: ["In-progress"]
             })(<Cascader options={this.statusOptions} allowClear={false}/>)}
           </Form.Item>)}
         <Form.Item

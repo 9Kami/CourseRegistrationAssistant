@@ -12,6 +12,12 @@ class HeaderContent extends React.Component {
     });
   }
 
+  handleLogOut(){
+    window.g_app._store.dispatch({
+      type: 'globalLayout/logOut'
+    });
+  }
+
   render() {
     const dropdown = (
       <Menu>
@@ -19,7 +25,7 @@ class HeaderContent extends React.Component {
           <Icon className={styles.headerDropdownIcon} type="setting" />
           Setting
         </Menu.Item>
-        <Menu.Item key="1">
+        <Menu.Item key="1" onClick={() => this.handleLogOut()}>
           <Icon className={styles.headerDropdownIcon} type="logout" />
           Log Out
         </Menu.Item>

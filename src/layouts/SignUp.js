@@ -13,27 +13,31 @@ class SignUp extends React.Component {
     };
   }
 
-  handleSignUpDown() {
+  handleSignUpDown(response) {
     this.setState({loading: false});
-    message.success('Successfully signed up!', 1, () => router.push('/login'))
+    if(response.userId === null){
+      message.error(response.message)
+    } else {
+      message.success('Successfully signed up!', 1, () => router.push('/login'))
+    }
   }
 
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
         this.setState({loading: true});
         request.post('/sign-up', {
           data: {
             userId: values.aNumber,
             password: values.password,
             nickname: values.nickname,
+            degree: values.major[0],
             major: values.major[1]
           }
         }).then((response) => {
           console.log(response);
-          this.handleSignUpDown();
+          this.handleSignUpDown(response);
         }).catch((error) => {
           console.log(error);
           this.setState({loading: false});

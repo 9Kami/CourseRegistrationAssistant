@@ -5,7 +5,7 @@ import {connect} from "dva";
 import Link from 'umi/link';
 
 class TrackCourses extends React.Component {
-  inProcessCoursesColumns = [
+  inProgressCoursesColumns = [
     {
       title: 'Subject',
       dataIndex: 'subject',
@@ -67,8 +67,8 @@ class TrackCourses extends React.Component {
         Track Your Couses
       </PageHeader>
       <div className={styles.trackCoursesContent}>
-        <Card title="In Processing Courses" className={styles.trackCoursesCard}>
-          <Table columns={this.inProcessCoursesColumns} bordered={false} />
+        <Card title="In-progress Courses" className={styles.trackCoursesCard}>
+          <Table columns={this.inProgressCoursesColumns} bordered={false} />
         </Card>
         <Card title="Completed Courses" className={styles.trackCoursesCard}>
           <Table columns={this.completedCoursesColumns} bordered={false} />

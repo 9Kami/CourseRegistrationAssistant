@@ -6,6 +6,16 @@
   margin-bottom: 24px;
 }
 
+.dashboardUserCard {
+  overflow: hidden;
+  height: 153px;
+}
+
+.dashboardUserDataCard {
+  overflow: hidden;
+  height: 153px;
+}
+
 .dashboardUser {
   display: flex;
 }

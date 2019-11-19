@@ -32,7 +32,7 @@ class Login extends React.Component {
           data: {
             userId: values.aNumber,
             password: values.password,
-            remember: values.remember
+            rememberMe: values.remember
           }
         }).then((response) => {
           console.log(response);

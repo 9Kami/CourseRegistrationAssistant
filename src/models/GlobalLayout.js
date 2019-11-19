@@ -1,24 +1,52 @@
 import router from "umi/router";
+import * as GlobalService from '../services/Global';
 
 export default {
   namespace: 'globalLayout',
-  state: {username:"username", avatar:"", siderCollapsed: false, indexLoading: true, needLogin: false},
+  state: {userId:"", username:"", avatar:"", siderCollapsed: false, indexLoading: true},
   reducers: {
-    initialize (state) {
-      return {...state, username:"9Kami", avatar:"", indexLoading: false, needLogin: false};
+    atuoLogin (state) {
+      return {...state, username:"9Kami", avatar:"", indexLoading: false};
     },
 
     collapse (state) {
       return {...state, siderCollapsed: !state.siderCollapsed};
     },
-
-    loginInitialize (state) {
-      return {...state, indexLoading: false};
-    }
   },
-  effect: {
-    initializea(){
+  effects: {
+    *initialize ({}, { call, put }){
+      const response = yield call(GlobalService.onlineCheck);
+      const userId = response.userId;
+      console.log(response);
+      if(userId === null) {
+        router.push("/login");
+      } else {
+        yield put({
+          type: 'atuoLogin',
+          payload: {
+            userId: userId
+          },
+        });
+      }
+    },
 
+    *logOut ({}, { call, put }) {
+      const response = yield call(GlobalService.logOut);
+      const userId = response.userId;
+      console.log(userId);
+      if(response.userId !== null) {
+        router.push("/login");
+      }
+    },
+
+    *getBasicInfo ({}, { call, put }){
+      const userId = yield call(GlobalService.onlineCheck);
+      yield put({
+        type: 'getBasicInfo',
+        payload: {
+          userId: userId
+        },
+      });
     }
   }
 }
