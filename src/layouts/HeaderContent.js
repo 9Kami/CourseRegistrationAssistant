@@ -40,7 +40,7 @@ class HeaderContent extends React.Component {
         <Dropdown overlay={dropdown} trigger={['click']}>
           <span className={styles.headerUserInfo}>
             <Avatar className={styles.headerUserAvatar} src={this.props.globalLayout.avatar} />
-            <span>{this.props.globalLayout.username}</span>
+            <span>{this.props.globalLayout.nickname}</span>
           </span>
         </Dropdown>
       </div>

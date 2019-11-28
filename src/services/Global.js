@@ -7,3 +7,7 @@ export function onlineCheck() {
 export function logOut() {
   return request.get('/logout');
 }
+
+export function user() {
+  return request.get('/user');
+}

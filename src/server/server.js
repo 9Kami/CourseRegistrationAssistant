@@ -8,3 +8,7 @@ export const request = extend({
   },
   credentials: 'include'
 });
+
+export const SUCCESSFUL = "SUCCESSFUL";
+export const FAILED = "FAILED";
+export const SERVERERROR = "SERVERERROR";

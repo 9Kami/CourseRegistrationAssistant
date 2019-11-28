@@ -45,24 +45,28 @@ class Dashboard extends React.Component {
     inProcess: <Table columns={this.coursesColumns} />,
     completed: <Table columns={this.coursesColumns} bordered={true} />
   };
-
+  
+  componentDidMount() {
+    window.g_app._store.dispatch({
+      type: 'dashboard/getDashboardInfo'
+    });
+  }
+  
   render() {
     return (
       <main className={styles.dashboardMain}>
         <Row gutter={24} className={styles.dashboardRow}>
           <Col span={16}>
-            <Card className={styles.dashboardUserCard}>
+            <Card className={styles.dashboardUserCard} loading={this.props.loading}>
               <div className={styles.dashboardUser}>
                 <div className={styles.dashboardUserAvatar}>
                   <Avatar size={103}
                           src={"https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png"}/>
                 </div>
                 <div className={styles.dashboardUserText}>
-                  <Typography.Title level={3}>
-                    9Kami
-                  </Typography.Title>
+                  <Typography.Title level={3}>{this.props.dashboard.nickname}</Typography.Title>
                   <Typography.Text type="secondary" className={styles.dashboardUserContent}>
-                    In Computer Science, Bachelor of Science
+                    In {this.props.dashboard.major}, {this.props.dashboard.degree}
                   </Typography.Text>
                 </div>
               </div>

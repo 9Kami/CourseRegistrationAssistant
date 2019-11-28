@@ -18,12 +18,6 @@ class BasicLayout extends React.Component {
     });
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    if(this.props.globalLayout.needLogin) {
-      router.push('/login');
-    }
-  }
-
   render() {
     if(this.props.location.pathname === '/') {
       router.push('/dashboard');

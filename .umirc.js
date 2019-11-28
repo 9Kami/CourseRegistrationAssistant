@@ -3,15 +3,19 @@
 export default {
   treeShaking: true,
   routes: [
-    { path: '/login', exact:true, component: '../layouts/Login' },
-    { path: '/sign-up', exact:true, component: '../layouts/SignUp' },
+    { title:"Login | Course Registration Assistant", path: '/login', exact:true, component: '../layouts/Login' },
+    { title:"Sign Up | Course Registration Assistant", path: '/sign-up', exact:true, component: '../layouts/SignUp' },
     {
+      title:"Course Registration Assistant",
       path: '/',
       component: '../layouts/index',
       routes: [
-        { path: '/dashboard', component: '../pages/Dashboard' },
-        { path: '/choose-your-courses', component: '../pages/ChooseCourses' },
-        { path: '/track-your-courses', component: '../pages/TrackCourses' },
+        { title:"Dashboard | Course Registration Assistant", path: '/dashboard', exact:true,
+          component: '../pages/Dashboard' },
+        { title:"Choose Your Courses | Course Registration Assistant", path: '/choose-your-courses', exact:true,
+          component: '../pages/ChooseCourses' },
+        { title:"Track Your Courses | Course Registration Assistant", path: '/track-your-courses', exact:true,
+          component: '../pages/TrackCourses' },
       ]
     }
   ],

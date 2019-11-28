@@ -2,8 +2,8 @@ import styles from './Login.css';
 import React from 'react';
 import {Form, Checkbox, Button, Input, Icon, message} from "antd";
 import Link from 'umi/link';
-import {request} from "@/server/server";
 import router from "umi/router";
+import * as Server from '../server/server'
 
 class Login extends React.Component {
   constructor(props){
@@ -15,10 +15,18 @@ class Login extends React.Component {
 
   handleLoginDown(response) {
     this.setState({loading: false});
-    if(response.userId === null) {
-      message.error('Username or password is wrong!');
-    } else {
-      message.success('Successfully logged in', 1, () => router.push('/dashboard'));
+    switch(response.status) {
+      case Server.SUCCESSFUL:
+        message.success('Successfully logged in', 1, () => router.push('/dashboard'));
+        break;
+      case Server.FAILED:
+        message.error(response.message);
+        break;
+      case Server.SERVERERROR:
+        message.error(response.message);
+        break;
+      default:
+        message.error('Unknown Error!');
     }
   }
 
@@ -28,7 +36,7 @@ class Login extends React.Component {
       if (!err) {
         console.log('Received values of form: ', values);
         this.setState({loading: true});
-        request.post('/login', {
+        Server.request.post('/login', {
           data: {
             userId: values.aNumber,
             password: values.password,

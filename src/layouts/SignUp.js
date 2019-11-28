@@ -1,8 +1,8 @@
 import styles from './Login.css';
 import React from 'react';
 import {Form, Checkbox, Button, Input, Icon, Tooltip, Cascader, message} from "antd";
-import { request } from "../server/server";
 import router from "umi/router";
+import * as Server from "@/server/server";
 
 class SignUp extends React.Component {
   constructor(props){
@@ -15,10 +15,18 @@ class SignUp extends React.Component {
 
   handleSignUpDown(response) {
     this.setState({loading: false});
-    if(response.userId === null){
-      message.error(response.message)
-    } else {
-      message.success('Successfully signed up!', 1, () => router.push('/login'))
+    switch(response.status) {
+      case Server.SUCCESSFUL:
+        message.success('Successfully signed up!', 1, () => router.push('/login'));
+        break;
+      case Server.FAILED:
+        message.error(response.message);
+        break;
+      case Server.SERVERERROR:
+        message.error(response.message);
+        break;
+      default:
+        message.error('Unknown Error!');
     }
   }
 
@@ -27,7 +35,7 @@ class SignUp extends React.Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         this.setState({loading: true});
-        request.post('/sign-up', {
+        Server.request.post('/sign-up', {
           data: {
             userId: values.aNumber,
             password: values.password,

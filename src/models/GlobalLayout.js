@@ -1,12 +1,14 @@
 import router from "umi/router";
 import * as GlobalService from '../services/Global';
+import * as Server from '../server/server';
 
 export default {
   namespace: 'globalLayout',
-  state: {userId:"", username:"", avatar:"", siderCollapsed: false, indexLoading: true},
+  state: {userId:"", nickname:"", avatar:"https://gw.alipayobjects.com/zos/antfincdn/XAosXuNZyF/BiazfanxmamNRoxxVxka.png",
+    siderCollapsed: false, indexLoading: true},
   reducers: {
-    atuoLogin (state) {
-      return {...state, username:"9Kami", avatar:"", indexLoading: false};
+    atuoLogin (state, { payload: {nickname} }) {
+      return {...state, nickname, indexLoading: false};
     },
 
     collapse (state) {
@@ -18,35 +20,39 @@ export default {
       const response = yield call(GlobalService.onlineCheck);
       const userId = response.userId;
       console.log(response);
-      if(userId === null) {
-        router.push("/login");
-      } else {
+      if(response.status === Server.SUCCESSFUL) {
         yield put({
-          type: 'atuoLogin',
-          payload: {
-            userId: userId
-          },
+          type: 'getBasicInfo'
         });
+      } else {
+        router.push("/login");
       }
     },
 
     *logOut ({}, { call, put }) {
       const response = yield call(GlobalService.logOut);
       const userId = response.userId;
-      console.log(userId);
-      if(response.userId !== null) {
+      console.log(response);
+      if(response.status === Server.SUCCESSFUL) {
         router.push("/login");
+      } else {
+        console.log(response.message);
       }
     },
 
     *getBasicInfo ({}, { call, put }){
-      const userId = yield call(GlobalService.onlineCheck);
-      yield put({
-        type: 'getBasicInfo',
-        payload: {
-          userId: userId
-        },
-      });
+      const response = yield call(GlobalService.user);
+      console.log(response);
+      if(response.status === Server.SUCCESSFUL) {
+        yield put({
+          type: 'atuoLogin',
+          payload: {
+            nickname: response.user.nickname
+          }
+        });
+      } else {
+        console.log(response.message);
+      }
     }
   }
 }
