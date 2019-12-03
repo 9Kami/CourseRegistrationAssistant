@@ -29,13 +29,15 @@ class SelectElectiveCourses extends React.Component {
       if (!err) {
         const { keys, electiveCourses } = values;
         const data = keys.map(key => electiveCourses[key]);
-        let courseArray = data.map(e => e[2]);
-        let courseIDArray = courseArray.map(e => e.courseID);
-        let courseNameArray = courseArray.map(e => e.courseName);
-        if(this.dataValidation(courseIDArray)){
-          console.log('Merged values:', courseNameArray);
+        let courseArray = data.map(e => ({ courseId: e[1] }));
+        if(this.dataValidation(courseArray)){
+          let coursesSelected = { courses: [...this.props.chooseCourses.requiredCoursesSelected, ...courseArray] };
+          console.log(coursesSelected);
           window.g_app._store.dispatch({
-            type: 'chooseCourses/nextStep'
+            type: 'chooseCourses/submit',
+            payload: {
+              coursesSelected
+            }
           });
         }
       }
@@ -113,10 +115,10 @@ class SelectElectiveCourses extends React.Component {
           </Button>
         </Form.Item>
         <Form.Item {...formItemLayoutWithOutLabel}>
-          <Button onClick={this.prev} style={{marginRight: "80px"}}>
+          <Button onClick={this.prev} style={{marginRight: "210px"}}>
             Previous
           </Button>
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" loading={this.props.loading['chooseCourses/submit']}>
             Done
           </Button>
         </Form.Item>
@@ -125,4 +127,4 @@ class SelectElectiveCourses extends React.Component {
 }
 
 export default connect(({chooseCourses, loading}) =>
-  ({chooseCourses, loading: loading.models.chooseCourses}))(Form.create({ name: 'electiveCoursesSelected' })(SelectElectiveCourses));
+  ({chooseCourses, loading: loading.effects}))(Form.create({ name: 'electiveCoursesSelected' })(SelectElectiveCourses));

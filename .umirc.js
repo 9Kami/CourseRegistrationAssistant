@@ -10,11 +10,11 @@ export default {
       path: '/',
       component: '../layouts/index',
       routes: [
-        { title:"Dashboard | Course Registration Assistant", path: '/dashboard', exact:true,
+        { title:"Dashboard", path: '/dashboard', exact:true,
           component: '../pages/Dashboard' },
-        { title:"Choose Your Courses | Course Registration Assistant", path: '/choose-your-courses', exact:true,
+        { title:"Choose Your Courses", path: '/choose-your-courses', exact:true,
           component: '../pages/ChooseCourses' },
-        { title:"Track Your Courses | Course Registration Assistant", path: '/track-your-courses', exact:true,
+        { title:"Track Your Courses", path: '/track-your-courses', exact:true,
           component: '../pages/TrackCourses' },
       ]
     }
@@ -25,7 +25,7 @@ export default {
       antd: true,
       dva: true,
       dynamicImport: false,
-      title: 'CourseRegistrationAssistant',
+      title: 'Course Registration Assistant',
       dll: false,
 
       routes: {
@@ -39,4 +39,5 @@ export default {
       },
     }],
   ],
+  base: 'https://hci.pchan.cn/',
 }

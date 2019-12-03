@@ -1,5 +1,5 @@
 import React from 'react';
-import {Cascader, Form, Button, Alert} from "antd";
+import {Cascader, Form, Button} from "antd";
 import styles from "./ChooseCourses.css";
 import {connect} from "dva";
 
@@ -7,11 +7,11 @@ class UpdateStatus extends React.Component {
   statusOptions = [
     {
       label: "In-progress",
-      value: "In-progress"
+      value: 1
     },
     {
       label: "Passed",
-      value: "Passed",
+      value: 2,
       children: [
         {
           label: "A+",
@@ -57,11 +57,11 @@ class UpdateStatus extends React.Component {
     },
     {
       label: "Failed",
-      value: "Failed"
+      value: 3
     },
     {
       label: "Dropped",
-      value: "Dropped"
+      value: 4
     },
   ];
 
@@ -69,9 +69,17 @@ class UpdateStatus extends React.Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log(values);
+        const updateData = {
+          courses: this.props.chooseCourses.previousCourses.map(e => ((values[e.courseID][0] === 2)?
+            {courseId: e.courseID, op:values[e.courseID][0], letterGrade:values[e.courseID][1] }:
+            {courseId: e.courseID, op:values[e.courseID][0] }))
+        };
+        console.log(updateData);
         window.g_app._store.dispatch({
-          type: 'chooseCourses/update'
+          type: 'chooseCourses/update',
+          payload: {
+            updateData
+          }
         });
       }
     });
@@ -83,9 +91,6 @@ class UpdateStatus extends React.Component {
     return <main>
       <Form className={styles.coursesForm} colon={false} hideRequiredMark={true}
             labelAlign={"left"} onSubmit={this.handleSubmit}>
-        <Alert message="After submitting, the status of the non-processing courses can not be changed."
-               type="info" showIcon />
-               <br/>
         {this.props.chooseCourses.previousCourses.map((e,i,arr)=>
           <Form.Item {...this.props.formItemLayout} label={e.courseName} key={i}>
             {getFieldDecorator(e.courseID, {
@@ -95,7 +100,7 @@ class UpdateStatus extends React.Component {
                   message: 'Please select the status for this course!',
                 },
               ],
-              initialValue: ["In-progress"]
+              initialValue: [1]
             })(<Cascader options={this.statusOptions} allowClear={false}/>)}
           </Form.Item>)}
         <Form.Item
@@ -104,8 +109,8 @@ class UpdateStatus extends React.Component {
             sm: { span: 8, offset: 16 },
           }}
         >
-          <Button type="primary" htmlType="submit">
-            Submit
+          <Button type="primary" htmlType="submit" loading={this.props.loading['chooseCourses/getCourseOptions']}>
+            Next
           </Button>
         </Form.Item>
       </Form>
@@ -114,4 +119,4 @@ class UpdateStatus extends React.Component {
 }
 
 export default connect(({chooseCourses, loading}) =>
-  ({chooseCourses, loading: loading.models.chooseCourses}))(Form.create({ name: 'updateStatus' })(UpdateStatus));
+  ({chooseCourses, loading: loading.effects}))(Form.create({ name: 'updateStatus' })(UpdateStatus));

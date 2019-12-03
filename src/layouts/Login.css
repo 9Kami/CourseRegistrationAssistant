@@ -19,3 +19,9 @@
   margin: 0 auto;
   width: 500px;
 }
+
+.signUpLoading {
+  margin-top: 50px;
+  height: 100%;
+  text-align: center;
+}

@@ -8,7 +8,7 @@ class Dashboard extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      tabKey: 'inProcess'
+      tabKey: 'inProgress'
     }
   }
 
@@ -20,8 +20,8 @@ class Dashboard extends React.Component {
     },
     {
       title: 'Course Number',
-      dataIndex: 'courseNo',
-      key: 'courseNo',
+      dataIndex: 'courseId',
+      key: 'courseId',
     },
     {
       title: 'Course Name',
@@ -33,18 +33,13 @@ class Dashboard extends React.Component {
   tabList = [
     {
       key: 'inProgress',
-      tab: 'In-progress',
+      tab: 'In-Progress',
     },
     {
       key: 'completed',
       tab: 'Completed',
     },
   ];
-
-  tabContentList = {
-    inProcess: <Table columns={this.coursesColumns} />,
-    completed: <Table columns={this.coursesColumns} bordered={true} />
-  };
   
   componentDidMount() {
     window.g_app._store.dispatch({
@@ -53,6 +48,13 @@ class Dashboard extends React.Component {
   }
   
   render() {
+    const tabContentList = {
+      inProgress: <Table columns={this.coursesColumns} dataSource={this.props.dashboard.inProgressCourses}
+                         rowKey={record => record.courseId}/>,
+      completed: <Table columns={this.coursesColumns} dataSource={this.props.dashboard.completedCourses}
+                        rowKey={record => record.courseId}/>
+    };
+    
     return (
       <main className={styles.dashboardMain}>
         <Row gutter={24} className={styles.dashboardRow}>
@@ -73,7 +75,7 @@ class Dashboard extends React.Component {
             </Card>
           </Col>
           <Col span={8}>
-            <Card className={styles.dashboardUserDataCard}>
+            <Card className={styles.dashboardUserDataCard} loading={this.props.loading}>
               <Row gutter={16}>
                 <Col span={8}>
                   <Statistic
@@ -94,8 +96,8 @@ class Dashboard extends React.Component {
                 </Col>
                 <Col span={8}>
                   <Statistic
-                    title="In Progress"
-                    value={this.props.dashboard.inProcessNo}
+                    title="In-Progress"
+                    value={this.props.dashboard.inProgressNo}
                     valueStyle={{fontSize:"52px"}}
                   />
                 </Col>
@@ -104,23 +106,12 @@ class Dashboard extends React.Component {
           </Col>
         </Row>
         <Row gutter={24} className={styles.dashboardRow}>
-          <Col span={12}>
-            <Card title="In-progress Courses" extra={<a href="#">Detail</a>}>
-              <Table columns={this.coursesColumns} bordered={false} />
-            </Card>
-          </Col>
-          <Col span={12}>
-            <Card title="Completed Courses" extra={<a href="#">Detail</a>}>
-              <Table columns={this.coursesColumns} bordered={false} />
-            </Card>
-          </Col>
-        </Row>
-        <Row gutter={24} className={styles.dashboardRow}>
           <Col span={24}>
             <Card tabList={this.tabList} title={"Your Courses"} activeTabKey={this.state.tabKey}
                   onTabChange={(key)=>this.setState({...this.state, tabKey:key})}
-                  extra={<Link to="/track-your-courses">Detail</Link>}>
-              {this.tabContentList[this.state.tabKey]}
+                  extra={<Link to="/track-your-courses">Detail</Link>}
+                  loading={this.props.loading}>
+              {tabContentList[this.state.tabKey]}
             </Card>
           </Col>
         </Row>

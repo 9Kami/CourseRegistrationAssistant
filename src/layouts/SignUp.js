@@ -1,6 +1,6 @@
 import styles from './Login.css';
 import React from 'react';
-import {Form, Checkbox, Button, Input, Icon, Tooltip, Cascader, message} from "antd";
+import {Form, Checkbox, Button, Input, Icon, Tooltip, Cascader, message, Spin} from "antd";
 import router from "umi/router";
 import * as Server from "@/server/server";
 
@@ -9,12 +9,31 @@ class SignUp extends React.Component {
     super(props);
     this.state = {
       confirmDirty: false,
+      majorOptions: [],
+      majorOptionsLoading: true,
       loading: false
     };
   }
-
+  
+  componentDidMount() {
+    Server.request.get('/sign-up-major')
+      .then((response) => {
+      console.log(response);
+      if(response.status === Server.SUCCESSFUL){
+        this.setState({...this.state, majorOptions:response.degreeMajor});
+        this.setState({...this.state, majorOptionsLoading: false});
+      } else {
+        message.error(response.message);
+        this.setState({...this.state, majorOptionsLoading: false});
+      }
+    }).catch((error) => {
+      console.log(error);
+      this.setState({...this.state, majorOptionsLoading: false});
+    });
+  }
+  
   handleSignUpDown(response) {
-    this.setState({loading: false});
+    this.setState({...this.state, loading: false});
     switch(response.status) {
       case Server.SUCCESSFUL:
         message.success('Successfully signed up!', 1, () => router.push('/login'));
@@ -48,7 +67,7 @@ class SignUp extends React.Component {
           this.handleSignUpDown(response);
         }).catch((error) => {
           console.log(error);
-          this.setState({loading: false});
+          this.setState({...this.state, loading: false});
         });
       }
     });
@@ -101,6 +120,12 @@ class SignUp extends React.Component {
         },
       },
     };
+  
+    if(this.state.majorOptionsLoading) {
+      return <div className={styles.signUpLoading}>
+        <Spin size={"large"}/>
+      </div>
+    }
 
     const majorOptions = [
       {
@@ -363,7 +388,7 @@ class SignUp extends React.Component {
                 }
               ],
             })(
-              <Cascader options={majorOptions}
+              <Cascader options={this.state.majorOptions}
                         showSearch={
                           {
                             filter(inputValue, path) {

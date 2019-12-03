@@ -25,7 +25,7 @@ class BasicLayout extends React.Component {
 
     if(this.props.globalLayout.indexLoading) {
       return <div className={styles.indexLoading}>
-        <Spin/>
+        <Spin size={"large"}/>
       </div>
     }
 
