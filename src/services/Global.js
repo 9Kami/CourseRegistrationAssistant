@@ -29,3 +29,13 @@ export function registration(coursesSelected) {
     data: coursesSelected
   });
 }
+
+export function getMajorOptions() {
+  return request.get('/sign-up-major');
+}
+
+export function updateUserInfo(data) {
+  return request.post('/settings', {
+    data
+  });
+}

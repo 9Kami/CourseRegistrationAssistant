@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6a5c7df-fb28-4a35-98db-c1c2593dfdcc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/models/Setting.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Setting.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Setting.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/Login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Login.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.umirc.js" beforeDir="false" afterPath="$PROJECT_DIR$/.umirc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layouts/SiderContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/SiderContent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layouts/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/SignUp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ChooseCourses.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ChooseCourses.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SelectElectiveCourses.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SelectElectiveCourses.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/Global.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/Global.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -133,7 +132,8 @@
       <workItem from="1574967875907" duration="5322000" />
       <workItem from="1575059508782" duration="8762000" />
       <workItem from="1575135989791" duration="4449000" />
-      <workItem from="1575318484463" duration="21561000" />
+      <workItem from="1575318484463" duration="22233000" />
+      <workItem from="1575392612885" duration="9376000" />
     </task>
     <servers />
   </component>

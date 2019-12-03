@@ -31,8 +31,10 @@ class SiderContent extends React.Component {
             </Link>
           </Menu.Item>
           <Menu.Item key={"setting"}>
-            <Icon type="setting" />
-            <span>Setting</span>
+            <Link to={"/setting"}>
+              <Icon type="setting" />
+              <span>Setting</span>
+            </Link>
           </Menu.Item>
         </Menu>
       </div>

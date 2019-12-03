@@ -2,6 +2,7 @@
 // ref: https://umijs.org/config/
 export default {
   treeShaking: true,
+  history: 'hash',
   routes: [
     { title:"Login | Course Registration Assistant", path: '/login', exact:true, component: '../layouts/Login' },
     { title:"Sign Up | Course Registration Assistant", path: '/sign-up', exact:true, component: '../layouts/SignUp' },
@@ -16,6 +17,8 @@ export default {
           component: '../pages/ChooseCourses' },
         { title:"Track Your Courses", path: '/track-your-courses', exact:true,
           component: '../pages/TrackCourses' },
+        { title:"Setting", path: '/setting', exact:true,
+          component: '../pages/Setting' },
       ]
     }
   ],
