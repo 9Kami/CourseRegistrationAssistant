@@ -39,5 +39,4 @@ export default {
       },
     }],
   ],
-  base: 'https://hci.pchan.cn/',
 }

@@ -1,10 +1,93 @@
 import React from 'react';
-import {Steps, Card, Result, Button, Typography, Table, Form, Input, PageHeader} from "antd";
+import {Popconfirm, Card, Table, PageHeader, Cascader} from "antd";
 import styles from "./TrackCourses.css"
 import {connect} from "dva";
 import Link from 'umi/link';
 
 class TrackCourses extends React.Component {
+  componentDidMount() {
+    window.g_app._store.dispatch({
+      type: 'trackCourses/getRegisteredCourses'
+    });
+  }
+  
+  statusOptions = [
+    {
+      label: "In-progress",
+      value: 1
+    },
+    {
+      label: "Passed",
+      value: 2,
+      children: [
+        {
+          label: "A+",
+          value: "A+"
+        },
+        {
+          label: "A",
+          value: "A"
+        },
+        {
+          label: "A-",
+          value: "A-"
+        },
+        {
+          label: "B+",
+          value: "B+"
+        },
+        {
+          label: "B",
+          value: "B"
+        },
+        {
+          label: "B-",
+          value: "B-"
+        },
+        {
+          label: "C+",
+          value: "C+"
+        },
+        {
+          label: "C",
+          value: "C"
+        },
+        {
+          label: "C-",
+          value: "C-"
+        },
+        {
+          label: "D",
+          value: "D"
+        }
+      ]
+    },
+    {
+      label: "Failed",
+      value: 3
+    },
+    {
+      label: "Dropped",
+      value: 4
+    },
+  ];
+  
+  changeStatus(record, value) {
+    console.log(record);
+    console.log(value);
+    let data = { courses: [
+      (value[0] === 2)? { courseId: record.courseId, op: value[0], letterGrade: value[1] }
+      :{courseId: record.courseId, op: value[0]}
+      ]};
+    console.log(data);
+    window.g_app._store.dispatch({
+      type: 'trackCourses/changeStatus',
+      payload: {
+        data
+      }
+    });
+  }
+  
   inProgressCoursesColumns = [
     {
       title: 'Subject',
@@ -13,8 +96,8 @@ class TrackCourses extends React.Component {
     },
     {
       title: 'Course Number',
-      dataIndex: 'courseNo',
-      key: 'courseNo',
+      dataIndex: 'courseId',
+      key: 'courseId',
     },
     {
       title: 'Course Name',
@@ -22,9 +105,12 @@ class TrackCourses extends React.Component {
       key: 'courseName',
     },
     {
-      title: 'Action',
-      dataIndex: 'action',
+      title: 'Change Status',
+      dataIndex: '',
       key: 'action',
+      render: (text, record, index) =>
+        <Cascader options={this.statusOptions} allowClear={false}
+                  onChange={(value, selectedOptions) =>this.changeStatus(record, value)}/>
     },
   ];
 
@@ -36,8 +122,8 @@ class TrackCourses extends React.Component {
     },
     {
       title: 'Course Number',
-      dataIndex: 'courseNo',
-      key: 'courseNo',
+      dataIndex: 'courseId',
+      key: 'courseId',
     },
     {
       title: 'Course Name',
@@ -50,14 +136,22 @@ class TrackCourses extends React.Component {
       key: 'letterGrade',
     },
     {
-      title: 'GPA',
-      dataIndex: 'gpa',
-      key: 'gpa',
+      title: 'Grade Point',
+      dataIndex: 'gradePoint',
+      key: 'gradePoint',
     },
     {
       title: 'GPA Hours',
-      dataIndex: 'gpaHours',
-      key: 'gpaHours',
+      dataIndex: 'creditHour',
+      key: 'creditHour',
+    },
+    {
+      title: 'Change Status',
+      dataIndex: '',
+      key: 'action',
+      render: (text, record, index) =>
+        <Cascader options={this.statusOptions} allowClear={false}
+                  onChange={(value, selectedOptions) =>this.changeStatus(record, value)}/>
     },
   ];
 
@@ -68,10 +162,12 @@ class TrackCourses extends React.Component {
       </PageHeader>
       <div className={styles.trackCoursesContent}>
         <Card title="In-progress Courses" className={styles.trackCoursesCard}>
-          <Table columns={this.inProgressCoursesColumns} bordered={false} />
+          <Table columns={this.inProgressCoursesColumns} dataSource={this.props.trackCourses.inProgressCourses}
+                 rowKey={record => record.courseId} pagination={{ pageSize: 5 }}/>
         </Card>
         <Card title="Completed Courses" className={styles.trackCoursesCard}>
-          <Table columns={this.completedCoursesColumns} bordered={false} />
+          <Table columns={this.completedCoursesColumns} dataSource={this.props.trackCourses.completedCourses}
+                 rowKey={record => record.courseId} pagination={{ pageSize: 5 }}/>
         </Card>
       </div>
     </main>

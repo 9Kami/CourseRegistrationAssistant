@@ -1,4 +1,3 @@
-import router from "umi/router";
 import * as GlobalService from "@/services/Global";
 import * as Server from "@/server/server";
 

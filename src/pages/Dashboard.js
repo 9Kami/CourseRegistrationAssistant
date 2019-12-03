@@ -50,9 +50,9 @@ class Dashboard extends React.Component {
   render() {
     const tabContentList = {
       inProgress: <Table columns={this.coursesColumns} dataSource={this.props.dashboard.inProgressCourses}
-                         rowKey={record => record.courseId}/>,
+                         rowKey={record => record.courseId} pagination={{ pageSize: 5 }}/>,
       completed: <Table columns={this.coursesColumns} dataSource={this.props.dashboard.completedCourses}
-                        rowKey={record => record.courseId}/>
+                        rowKey={record => record.courseId} pagination={{ pageSize: 5 }}/>
     };
     
     return (
