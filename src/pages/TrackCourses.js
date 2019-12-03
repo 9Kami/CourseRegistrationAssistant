@@ -110,7 +110,8 @@ class TrackCourses extends React.Component {
       key: 'action',
       render: (text, record, index) =>
         <Cascader options={this.statusOptions} allowClear={false}
-                  onChange={(value, selectedOptions) =>this.changeStatus(record, value)}/>
+                  onChange={(value, selectedOptions) =>this.changeStatus(record, value)}
+                  placeholder={"Please select"}/>
     },
   ];
 
@@ -151,7 +152,8 @@ class TrackCourses extends React.Component {
       key: 'action',
       render: (text, record, index) =>
         <Cascader options={this.statusOptions} allowClear={false}
-                  onChange={(value, selectedOptions) =>this.changeStatus(record, value)}/>
+                  onChange={(value, selectedOptions) =>this.changeStatus(record, value)}
+                  placeholder={"Please select"}/>
     },
   ];
 
