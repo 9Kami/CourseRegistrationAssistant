@@ -53,8 +53,24 @@
 
 .siderLogo {
   width: 100%;
-  padding-left: 24px;
+  padding-left: 20px;
+  margin-bottom: 10px;
   height: 66px;
+  overflow: hidden;
+  line-height: 66px;
+}
+
+.siderLogoImage {
+  display: inline-block;
+}
+
+.siderLogoTitle {
+  margin-left: 12px;
+  margin-bottom: 0;
+  display: inline-block;
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
 }
 
 .content{

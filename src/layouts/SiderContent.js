@@ -1,5 +1,5 @@
 import React from 'react';
-import {Menu, Icon} from "antd";
+import {Menu, Icon, Typography} from "antd";
 import styles from "./index.css";
 import Link from 'umi/link';
 
@@ -8,6 +8,8 @@ class SiderContent extends React.Component {
     return (
       <div>
         <div className={styles.siderLogo}>
+          <img className={styles.siderLogoImage} src={require("../assets/logo.png")} alt={"logo"} height={'32px'}/>
+          <h1 className={styles.siderLogoTitle}>Registration Assistant</h1>
         </div>
         <Menu theme={"dark"} selectedKeys={this.props.selectedKeys}>
           <Menu.Item key={"dashboard"} >

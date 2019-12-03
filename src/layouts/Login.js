@@ -1,6 +1,6 @@
 import styles from './Login.css';
 import React from 'react';
-import {Form, Checkbox, Button, Input, Icon, message} from "antd";
+import {Form, Checkbox, Button, Input, Icon, message, Typography} from "antd";
 import Link from 'umi/link';
 import router from "umi/router";
 import * as Server from '../server/server'
@@ -58,6 +58,10 @@ class Login extends React.Component {
     const { getFieldDecorator } = this.props.form;
     return (
       <main className={styles.login}>
+        <div className={styles.logo}>
+          <img className={styles.logoImage} src={require("../assets/logo.png")} alt={"logo"} height={'200px'}/>
+          <Typography.Title>Course Registration Assistant</Typography.Title>
+        </div>
       <Form onSubmit={this.handleSubmit} className={styles.loginForm}>
         <Form.Item>
           {getFieldDecorator('aNumber', {

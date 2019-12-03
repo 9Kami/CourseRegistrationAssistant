@@ -1,6 +1,6 @@
 import styles from './Login.css';
 import React from 'react';
-import {Form, Checkbox, Button, Input, Icon, Tooltip, Cascader, message, Spin} from "antd";
+import {Form, Checkbox, Button, Input, Icon, Tooltip, Cascader, message, Spin, Typography} from "antd";
 import router from "umi/router";
 import * as Server from "@/server/server";
 
@@ -328,6 +328,10 @@ class SignUp extends React.Component {
 
     return (
       <main className={styles.signUp}>
+        <div className={styles.logo}>
+          <img className={styles.logoImage} src={require("../assets/logo.png")} alt={"logo"} height={'200px'}/>
+          <Typography.Title>Course Registration Assistant</Typography.Title>
+        </div>
         <Form className={styles.signUpForm} {...formItemLayout} onSubmit={this.handleSubmit}>
           <Form.Item label="A-number">
             {getFieldDecorator('aNumber', {

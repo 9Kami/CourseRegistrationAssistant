@@ -51,6 +51,8 @@ class BasicLayout extends React.Component {
       <Layout className={styles.normal}>
         <Sider className={styles.sider}
                theme={"dark"}
+               width={290}
+               trigger={null}
                collapsible={true}
                collapsed={this.props.globalLayout.siderCollapsed}>
           <SiderContent selectedKeys={selectedKeys}/>

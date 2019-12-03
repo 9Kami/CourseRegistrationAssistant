@@ -115,7 +115,7 @@ class SelectElectiveCourses extends React.Component {
           </Button>
         </Form.Item>
         <Form.Item {...formItemLayoutWithOutLabel}>
-          <Button onClick={this.prev} style={{marginRight: "210px"}}>
+          <Button onClick={this.prev} style={{marginRight: "165px"}}>
             Previous
           </Button>
           <Button type="primary" htmlType="submit" loading={this.props.loading['chooseCourses/submit']}>
