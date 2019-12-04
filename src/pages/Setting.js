@@ -15,13 +15,13 @@ class Setting extends React.Component {
       }
     });
   };
-  
+
   componentDidMount() {
     window.g_app._store.dispatch({
       type: 'setting/initialize',
     });
   }
-  
+
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
@@ -44,7 +44,7 @@ class Setting extends React.Component {
       }
     });
   };
-  
+
   render() {
     const { TabPane } = Tabs;
     const { getFieldDecorator } = this.props.form;
@@ -70,10 +70,10 @@ class Setting extends React.Component {
         },
       },
     };
-    
+
     return <main className={styles.settingMain}>
       <Card>
-        <Tabs defaultActiveKey="personalInfo" tabPosition={"left"} onChange={this.callback}>
+        <Tabs activeKey={this.props.setting.currTabKey} tabPosition={"left"} onChange={this.callback}>
           <TabPane tab="Personal Information" key="personalInfo">
             {(this.props.setting.currTabKey === 'personalInfo')?
               <Form className={styles.settingForm} {...formItemLayout} onSubmit={this.handleSubmit}>
