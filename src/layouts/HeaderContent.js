@@ -3,7 +3,7 @@ import {Icon, Avatar, Dropdown, Menu} from "antd";
 import styles from "./index.css"
 import withRouter from "umi/withRouter";
 import {connect} from "dva";
-import router from "umi/router";
+import Link from "umi/link";
 
 class HeaderContent extends React.Component {
   handleCollapse(){
@@ -22,10 +22,18 @@ class HeaderContent extends React.Component {
     const dropdown = (
       <Menu>
         <Menu.Item key="0">
-          <Icon className={styles.headerDropdownIcon} type="setting" />
-          Setting
+          <Link to={'/setting'}>
+            <Icon className={styles.headerDropdownIcon} type="setting" />
+            Setting
+          </Link>
         </Menu.Item>
-        <Menu.Item key="1" onClick={() => this.handleLogOut()}>
+        <Menu.Item key="1">
+          <a href="https://hci.pchan.cn/docs" target="_blank">
+            <Icon className={styles.headerDropdownIcon} type="question" />
+            Help
+          </a>
+        </Menu.Item>
+        <Menu.Item key="2" onClick={() => this.handleLogOut()}>
           <Icon className={styles.headerDropdownIcon} type="logout" />
           Log Out
         </Menu.Item>
