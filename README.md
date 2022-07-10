@@ -1,2 +1,2 @@
 # CourseRegistrationAssistant
-Course Registration Assistant
+Front-end part of the Course Registration Assistant
